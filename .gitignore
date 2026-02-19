@@ -1,0 +1,17 @@
+# Fichiers de données
+*.dat
+*.npy
+*.npz
+
+# Caches et fichiers compilés Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels
+venv/
+env/
+.conda/
+
+# Fichiers temporaires Jupyter Notebook
+.ipynb_checkpoints/
