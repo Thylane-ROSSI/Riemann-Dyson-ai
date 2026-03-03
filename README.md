@@ -28,9 +28,9 @@ Before feeding data to an AI, we must generate and standardize the physical data
 
 ### Visualizations (Phase 1)
 
-**1. Global Density: The Wigner Semicircle Law** *The macroscopic distribution of raw energy levels.* ![Wigner Semicircle](graph/wigner_semicircle.png)
+**1. Global Density: The Wigner Semicircle Law** *The macroscopic distribution of raw energy levels.* ![Wigner Semicircle](physis/graph/wigner_semicircle.png)
 
-**2. Local Fluctuations: The Wigner Surmise** *The microscopic spacing after the unfolding process. Notice how the probability drops to zero on the left: energy levels repel each other.* ![Wigner Surmise](graph/wigner_surmise.png)
+**2. Local Fluctuations: The Wigner Surmise** *The microscopic spacing after the unfolding process. Notice how the probability drops to zero on the left: energy levels repel each other.* ![Wigner Surmise](physis/graph/wigner_surmise.png)
 
 ---
 
