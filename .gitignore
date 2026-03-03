@@ -12,6 +12,7 @@ __pycache__/
 venv/
 env/
 .conda/
+data/
 
 # Fichiers temporaires Jupyter Notebook
 .ipynb_checkpoints/
