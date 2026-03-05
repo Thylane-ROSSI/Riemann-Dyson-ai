@@ -37,7 +37,7 @@ Before feeding data to an AI, we must generate and standardize the physical data
 ## Project Roadmap
 
 - [x] **Phase 1:** Simulate GUE matrices, implement analytical unfolding, and validate quantum repulsion.
-- [ ] **Phase 2:** Acquire and unfold the non-trivial zeros of the Riemann Zeta function (via Odlyzko's datasets).
+- [x] **Phase 2:** Acquire and unfold the non-trivial zeros of the Riemann Zeta function (via Odlyzko's datasets).
 - [ ] **Phase 3:** Design and train a Deep Learning discriminator (1D-CNN / Transformer) to classify GUE vs. Riemann sequences.
 - [ ] **Phase 4:** Apply Explainable AI (SHAP/Captum) to interpret the model's logic and write a philosophical/epistemological analysis on AI-driven mathematical discovery.
 
