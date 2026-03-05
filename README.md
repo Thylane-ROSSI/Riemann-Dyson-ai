@@ -16,7 +16,7 @@ In the 1970s, physicist Freeman Dyson and mathematician Hugh Montgomery made a s
 
 ---
 
-## Current State: Phase 1 (Building the Physics Baseline)
+## Phase 1 (Building the Physics Baseline)
 
 Before feeding data to an AI, we must generate and standardize the physical dataset. Phase 1 focuses on simulating heavy nuclei and validating the quantum mechanical properties.
 
@@ -34,6 +34,24 @@ Before feeding data to an AI, we must generate and standardize the physical data
 
 ---
 
+## Phase 2 (The Mathematical Baseline: Riemann Zeta Function)
+
+Just like the energy levels of heavy atoms, the non-trivial zeros of the Riemann Zeta function exhibit varying global density (they become denser as we move higher up the critical line). To compare them with our quantum system, we must apply a similar unfolding process.
+
+### How Phase 2 Works:
+1. **Data Acquisition:** We utilize the high-precision datasets computed by mathematician Andrew Odlyzko, loading the heights ($\gamma$) of the first 100,000 non-trivial zeros.
+2. **The Unfolding Process:** We unfold the Riemann zeros using the leading asymptotic term of the Riemann-von Mangoldt counting function $N(T)$:
+   $$x_i = \frac{\gamma_i}{2\pi} \left( \ln\left(\frac{\gamma_i}{2\pi}\right) - 1 \right)$$
+   This transformation normalizes the local density of the zeros, forcing the mean spacing between adjacent zeros to be exactly $1.0$.
+3. **The Miracle of the Conjecture:** When we plot the histogram of the spacings between these unfolded zeros, we witness the exact same "Quantum Level Repulsion" (Wigner Surmise) as seen in the GUE matrices. The mathematical chaos perfectly mirrors the quantum chaos.
+
+### Visualizations (Phase 2)
+
+**Riemann Zeros Local Fluctuations** *The microscopic spacing of the unfolded Riemann zeros. The curve is virtually identical to the GUE distribution.*
+![Riemann Surmise](mathematics/riemann_surmise.png)
+
+---
+
 ## Project Roadmap
 
 - [x] **Phase 1:** Simulate GUE matrices, implement analytical unfolding, and validate quantum repulsion.
@@ -43,7 +61,7 @@ Before feeding data to an AI, we must generate and standardize the physical data
 
 ## Requirements & Usage
 * Python 3.x
-* `numpy`, `matplotlib`
+* `numpy`, `matplotlib` , `os`
 
 To generate a GUE matrix ($N=1000$), perform the unfolding, and generate the plots in the `/graph` directory:
 ```bash
