@@ -48,7 +48,7 @@ Just like the energy levels of heavy atoms, the non-trivial zeros of the Riemann
 ### Visualizations (Phase 2)
 
 **Riemann Zeros Local Fluctuations** *The microscopic spacing of the unfolded Riemann zeros. The curve is virtually identical to the GUE distribution.*
-![Riemann Surmise](mathematics/riemann_surmise.png)
+![Riemann Surmise](mathematics/graph/riemann_surmise.png)
 
 ---
 
