@@ -61,7 +61,7 @@ Just like the energy levels of heavy atoms, the non-trivial zeros of the Riemann
 
 ## Requirements & Usage
 * Python 3.x
-* `numpy`, `matplotlib` , `os`
+* `numpy`, `matplotlib` , `os`, `torch`, 
 
 To generate a GUE matrix ($N=1000$), perform the unfolding, and generate the plots in the `/graph` directory:
 ```bash
