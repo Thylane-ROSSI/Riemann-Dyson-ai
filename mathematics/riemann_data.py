@@ -45,7 +45,7 @@ def save_riemann_plot(unfolded_spacings, output_dir="../mathematics"):
 
 # ==========================================
 if __name__ == "__main__":
-    print("--- Testing Riemann Module ---")
+    print("Testing Riemann Module")
     
     test_data_path = os.path.join("../data", "zeros_100k.txt")
     
