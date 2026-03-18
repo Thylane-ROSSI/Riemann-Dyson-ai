@@ -30,7 +30,7 @@ def get_riemann_spacings(filepath):
         return np.diff(unfolded_zeros)
     return None
 
-def save_riemann_plot(unfolded_spacings, output_dir="../mathematics"):
+def save_riemann_plot(unfolded_spacings, output_dir="mathematics/graph"):
     """
     Saves the spacing distribution plot to visually verify the level repulsion.
     """
@@ -47,11 +47,11 @@ def save_riemann_plot(unfolded_spacings, output_dir="../mathematics"):
 if __name__ == "__main__":
     print("Testing Riemann Module")
     
-    test_data_path = os.path.join("../data", "zeros_100k.txt")
+    test_data_path = os.path.join("data", "zeros_100k.txt")
     
     # Get the spacings directly using our new helper function
     spacings = get_riemann_spacings(test_data_path)
     
     if spacings is not None:
         print(f"Mean spacing: {np.mean(spacings):.4f} (Theoretical = 1.0000)")
-        save_riemann_plot(spacings, output_dir="graph")
+        save_riemann_plot(spacings, output_dir="mathematics/graph")

@@ -42,7 +42,7 @@ def get_massive_gue_spacings(n_size=1000, nb_matrices=100):
         
     return np.array(all_spacings)
 
-def save_gue_plots(eigenvalues, unfolded_spacings, n_size, output_dir="graph"):
+def save_gue_plots(eigenvalues, unfolded_spacings, n_size, output_dir="physics/graph"):
     """
     Generates and saves the macroscopic and microscopic plots for validation.
     """
