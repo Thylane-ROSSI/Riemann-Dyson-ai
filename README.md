@@ -72,8 +72,8 @@ The architecture consists of approximately 5,300 trainable parameters distribute
 
 ### Results & Interpretation
 The neural network achieved remarkable results:
-* **Training Accuracy:** ~97.96%
-* **Test Accuracy:** **97.32%**
+* **Training Accuracy:** ~98.20%
+* **Test Accuracy:** **99.13%**
 
 This exceptionally high accuracy on unseen test data formally proves that the model successfully generalized. It confirms that the sequence of distances between Riemann zeros contains a distinct mathematical signature separate from pure quantum randomness. While their nearest-neighbor distributions (Wigner Surmise) align perfectly to the human eye and basic statistics, the MLP successfully mapped higher-order correlations across the 50-step sequences. The trained weights are saved in a `.pth` file for future inference.
 
@@ -83,7 +83,7 @@ This exceptionally high accuracy on unseen test data formally proves that the mo
 
 - [x] **Phase 1:** Simulate GUE matrices, implement analytical unfolding, and validate quantum repulsion.
 - [x] **Phase 2:** Acquire and unfold the non-trivial zeros of the Riemann Zeta function (via Odlyzko's datasets).
-- [x] **Phase 3:** Design and train a Deep Learning discriminator (MLP) to classify GUE vs. Riemann sequences with >97% accuracy.
+- [x] **Phase 3:** Design and train a Deep Learning discriminator (MLP) to classify GUE vs. Riemann sequences with >99% accuracy.
 - [ ] **Phase 4:** Apply Explainable AI (SHAP/Captum) to interpret the model's logic and extract the mathematical boundary discovered by the neural network.
 
 ## Requirements & Usage

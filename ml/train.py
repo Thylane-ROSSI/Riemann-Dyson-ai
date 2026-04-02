@@ -13,7 +13,7 @@ from ml.model import ChaosOracle
 def load_all_data(window_size=50):
     """Loads GUE and Riemann data, builds windows and returns the full Dataset."""
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(base_dir, "data")
+    data_dir = os.path.join(base_dir, "..", "data")
     
     # 1. Load GUE (from cache)
     gue_cache_path = os.path.join(data_dir, "gue_spacings_cache.npy")
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     # Training Loop
     num_epochs = 5
-    print("\nStarting Training")
+    print("\nStarting Training...")
     
     for epoch in range(num_epochs):
         model.train()
