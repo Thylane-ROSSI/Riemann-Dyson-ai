@@ -102,6 +102,9 @@ if __name__ == "__main__":
     # Save the trained model weights
     print("\nSaving Model Weights")
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    save_path = os.path.join(base_dir, "chaos_oracle_weights.pth")
+    models_dir = os.path.join(base_dir, "..", "models")
+    os.makedirs(models_dir, exist_ok=True)
+    
+    save_path = os.path.join(models_dir, "chaos_oracle_weights.pth")
     torch.save(model.state_dict(), save_path)
     print(f"Model successfully saved at: {save_path}")
