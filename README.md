@@ -79,12 +79,30 @@ This exceptionally high accuracy on unseen test data formally proves that the mo
 
 ---
 
+## Phase 4 (Explainable AI and Interpretability)
+
+While our neural network accurately distinguishes between GUE and Riemann spacings, it effectively acts as a "black box." Phase 4 aims to look inside this black box using **Explainable AI (XAI)** to understand *how* the model makes its decisions and which parts of the sequences carry the distinct mathematical signatures.
+
+### How Phase 4 Works:
+1. **Game Theory Approach:** We use **SHAP (SHapley Additive exPlanations)**, a method rooted in cooperative game theory. SHAP assigns an importance value to each feature (in our case, each of the 50 level spacings in a sequence) based on its contribution to the model's final prediction.
+2. **DeepExplainer Implementation:** We utilize `shap.DeepExplainer` to approximate Shapley values for our PyTorch MLP. We feed the explainer a "background dataset" (a sample of sequences to establish a baseline) and a test dataset to analyze.
+3. **Dimensionality Wrapper:** To ensure compatibility between PyTorch's squeezed output layers and SHAP's tensor expectations, the model is wrapped in a custom `nn.Module` that re-expands the output to `[batch_size, 1]`.
+
+### Results & Interpretation
+The SHAP values allow us to generate a summary plot that ranks the features by their impact on the model's output. By analyzing this graph, we can observe:
+* **Feature Importance:** Which specific spacings within the 50-step window (e.g., the early spacings vs. the later ones) are most heavily weighted by the model.
+* **Correlation Direction:** Whether a higher or lower value in a specific spacing pushes the model's prediction toward the Riemann Zeta function (Label 1) or toward the GUE distribution (Label 0).
+
+This phase effectively translates the abstract weights of the neural network back into readable mathematical insights, providing clues about the structural differences between quantum random matrices and prime number distribution.
+
+---
+
 ## Project Roadmap
 
 - [x] **Phase 1:** Simulate GUE matrices, implement analytical unfolding, and validate quantum repulsion.
 - [x] **Phase 2:** Acquire and unfold the non-trivial zeros of the Riemann Zeta function (via Odlyzko's datasets).
 - [x] **Phase 3:** Design and train a Deep Learning discriminator (MLP) to classify GUE vs. Riemann sequences with >97% accuracy.
-- [ ] **Phase 4:** Apply Explainable AI (SHAP/Captum) to interpret the model's logic and extract the mathematical boundary discovered by the neural network.
+- [x] **Phase 4:** Apply Explainable AI (SHAP/Captum) to interpret the model's logic and extract the mathematical boundary discovered by the neural network.
 
 ## Requirements & Usage
 * Python 3.x
