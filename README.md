@@ -123,7 +123,7 @@ Certain adjacent spacings (e.g., 19/20 or 32/33) share almost identical importan
 
 **1. Global SHAP Summary (Bar Plot)**
 *The top 20 most influential spacings on the model's output, ranked by average absolute importance. The central cluster (spacings 18–35) clearly dominates the decision-making process.*
-![Global SHAP Summary](shap_global_summary.png)
+![Global SHAP Summary](ml/graph/shap_global_summary.png)
 
 ---
 
