@@ -197,6 +197,7 @@ python3 -m ml.explain
 ## References & Documentation
 
 * **[Granville, A. (2002). Nombres premiers et chaos quantique.](https://dms.umontreal.ca/~andrew/PDF/quantique.pdf)** Details the historical context and the surprising connection between prime number distribution and the mathematics of quantum physics.
+* **[Wikipedia: Fonction zêta de Riemann](https://fr.wikipedia.org/wiki/Fonction_z%C3%AAta_de_Riemann)** A comprehensive overview (in French) of the Zeta function, its mathematical properties, and its fundamental link to prime numbers.
 * **[Crouzet, A. (2010). Introduction aux Matrices Aléatoires.](https://www.math.ens.psl.eu/shared-files/10508/?crouzet.pdf)** Provides a rigorous introduction to Random Matrix Theory and the Gaussian Unitary Ensemble (GUE).
 * **[Exo7. Valeurs propres, vecteurs propres.](http://exo7.emath.fr/cours/ch_vp.pdf)** Fundamental linear algebra course on eigenvalues and matrix diagonalization.
 * **Derbyshire, J. (2004).** *Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics.* (Dans la jungle des nombres premiers).
