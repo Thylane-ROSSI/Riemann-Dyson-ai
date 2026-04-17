@@ -97,12 +97,76 @@ This phase effectively translates the abstract weights of the neural network bac
 
 ---
 
+## Phase 5 (Global Interpretability: Decoding the AI's Logic)
+
+After demonstrating that our model could distinguish GUE and Riemann with 97.6% accuracy (Phase 3) and identifying influential spacings for individual predictions (Phase 4), this final phase aims to understand globally *how* the model makes its decisions. 
+
+To achieve this, we scaled our SHAP analysis to aggregate the impact of each spacing across the entire dataset (5,000 sequences), revealing the underlying structural motifs learned by the neural network.
+
+### Key Results
+
+**1. Central Spacings are the Most Discriminative**
+The model largely ignores the first and last spacings of a sequence (positions 1–17 and 40–50) and focuses heavily on a central window (positions 18–35). This suggests that:
+* Medium-range correlations carry a distinct mathematical signature that separates GUE and Riemann.
+* Very short-range spacings (1–7) might be too similar between the two systems (as they are both dominated by immediate "level repulsion"), while long-range spacings (40–50) might simply be too noisy.
+
+**2. The Model Associates Large Spacings with Riemann**
+The global SHAP analysis reveals a clear directional pattern:
+* High values for certain central spacings (e.g., 21, 22, 31) strongly push the prediction toward "Riemann".
+* Low values for these same spacings push the prediction toward "GUE".
+* *Hypothesis:* The zeros of the Riemann Zeta function might exhibit a higher spacing variance than GUE energy levels within these specific correlation windows. This hypothesis remains to be statistically validated.
+
+**3. Symmetry and Recurring Motifs**
+Certain adjacent spacings (e.g., 19/20 or 32/33) share almost identical importance weights. This suggests the model is exploiting pairs or triplets of spacings to capture local motifs, reminiscent of N-body correlations in quantum physics.
+
+### Visualizations (Phase 5)
+
+**1. Global SHAP Summary (Bar Plot)**
+*The top 20 most influential spacings on the model's output, ranked by average absolute importance. The central cluster (spacings 18–35) clearly dominates the decision-making process.*
+![Global SHAP Summary](shap_global_summary.png)
+
+---
+
+## Limitations & Epistemological Biases
+
+Despite these highly promising results, several limitations must be rigorously highlighted:
+
+**1. Data Selection Bias**
+* **GUE:** Generated from fixed-size matrices (N=1000) using only 100 realizations. The model might have captured numerical artifacts specific to this matrix dimension.
+* **Riemann:** We utilized the first 100,000 zeros. The analytical unfolding process is inherently less precise at the beginning of the critical line than it is for much higher zeros.
+
+**2. Imperfect Unfolding**
+The unfolding of the Riemann zeros relies on an asymptotic approximation (the leading term of the Riemann-von Mangoldt formula). Because this formula is only perfectly accurate as T approaches infinity, the earliest zeros in our dataset might be imperfectly normalized, potentially leaving behind a density artifact that the AI exploited.
+
+**3. Potential Overfitting to the Distribution**
+A 97.6% accuracy is suspiciously high for a task historically deemed impossible by traditional statistics. Further testing is strictly necessary to verify true generalization (e.g., evaluating the model on GUE matrices generated via different algorithms, or testing on Riemann zeros located around $10^{20}$).
+
+**4. Limits of Explainability (SHAP Assumption)**
+SHAP mathematically assumes that features are independent. However, in a sequence of spacings, features are inherently correlated. Consequently, the SHAP values might slightly overestimate or misattribute the importance of certain specific spacings.
+
+---
+
+## Conclusion & Future Perspectives
+
+### What We Learned
+* An Artificial Intelligence can indeed distinguish GUE from Riemann despite their theoretical microscopic similarity, primarily by exploiting medium-range correlations.
+* The central spacings within our sliding window (18–35) appear to carry a distinct mathematical signature, potentially linked to N-body correlations (where N > 2) that differ from quantum randomness.
+* The unfolding process is the critical foundation of this research: without it, the model would simply capture trivial global density differences rather than true local chaotic fluctuations.
+
+### Takeaways with Caution
+* This is **not** a formal mathematical proof. It is an empirical demonstration within a highly specific computational framework.
+* Biases are prevalent: numerical artifacts, unfolding approximations, and potential dataset overfitting must be considered.
+* Generalization remains uncertain until tested against vastly different datasets.
+
+---
+
 ## Project Roadmap
 
 - [x] **Phase 1:** Simulate GUE matrices, implement analytical unfolding, and validate quantum repulsion.
 - [x] **Phase 2:** Acquire and unfold the non-trivial zeros of the Riemann Zeta function (via Odlyzko's datasets).
 - [x] **Phase 3:** Design and train a Deep Learning discriminator (MLP) to classify GUE vs. Riemann sequences with >97% accuracy.
 - [x] **Phase 4:** Apply Explainable AI (SHAP/Captum) to interpret the model's logic and extract the mathematical boundary discovered by the neural network.
+- [x] **Phase 5:** Scale SHAP analysis to the global dataset (5,000 sequences) to decode the AI's logic, isolate central medium-range correlations, and acknowledge epistemological limitations.
 
 ## Requirements & Usage
 * Python 3.x
@@ -123,6 +187,11 @@ To execute the data pipeline and train the Multi-Layer Perceptron from scratch:
 
 ```bash
 python3 -m ml.train
+```
+To run the Explainable AI (SHAP) global analysis and generate the interpretability plots in the local graph/ directory:
+
+```bash
+python3 -m ml.explain
 ```
 
 ## References & Documentation
